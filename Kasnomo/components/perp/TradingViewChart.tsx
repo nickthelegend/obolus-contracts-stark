@@ -44,9 +44,9 @@ export const TradingViewChart: React.FC = () => {
                     hide_side_toolbar: false,
                     allow_symbol_change: true,
                     container_id: 'tradingview_perp',
-                    backgroundColor: '#050507',
+                    backgroundColor: '#02040A',
                     gridColor: 'rgba(255, 255, 255, 0.05)',
-                    loading_screen: { backgroundColor: '#050507' },
+                    loading_screen: { backgroundColor: '#02040A' },
                 });
             }
         }

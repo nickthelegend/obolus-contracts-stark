@@ -51,7 +51,7 @@ export default function PerpPage() {
     }, [isConnected, assetPrices]);
 
     return (
-        <main className="min-h-screen bg-[#050507] text-white pt-24 pb-12 px-2 sm:px-6 md:px-8 overflow-hidden relative">
+        <main className="min-h-screen bg-[#02040A] text-white pt-24 pb-12 px-2 sm:px-6 md:px-8 overflow-hidden relative">
             <Header />
 
             {/* Background decoration */}

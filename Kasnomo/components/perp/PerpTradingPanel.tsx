@@ -56,13 +56,13 @@ export const PerpTradingPanel: React.FC = () => {
     };
 
     return (
-        <Card className="max-w-md w-full bg-[#050507]/80 backdrop-blur-xl border-white/5 shadow-2xl overflow-hidden">
+        <Card className="max-w-md w-full bg-gradient-to-br from-black/95 via-[#3A1E8D]/20 to-black/95 backdrop-blur-xl border-white/10 shadow-2xl overflow-hidden text-neutral-200">
             {/* Side Toggle */}
             <div className="flex p-1 bg-black/40 rounded-t-xl mb-4">
                 <button
                     onClick={() => setSide('long')}
                     className={`flex-1 py-2.5 rounded-lg text-[10px] font-black tracking-widest transition-all ${side === 'long'
-                        ? 'bg-[#E44134] text-white shadow-[0_0_20px_rgba(228,65,52,0.3)]'
+                        ? 'bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]'
                         : 'text-neutral-500 hover:text-neutral-300'
                         }`}
                 >
@@ -71,7 +71,7 @@ export const PerpTradingPanel: React.FC = () => {
                 <button
                     onClick={() => setSide('short')}
                     className={`flex-1 py-2.5 rounded-lg text-[10px] font-black tracking-widest transition-all ${side === 'short'
-                        ? 'bg-red-500 text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]'
+                        ? 'bg-rose-500 text-white shadow-[0_0_20px_rgba(244,63,94,0.3)]'
                         : 'text-neutral-500 hover:text-neutral-300'
                         }`}
                 >
@@ -91,7 +91,7 @@ export const PerpTradingPanel: React.FC = () => {
                                     key={asset.id}
                                     onClick={() => setStoreSelectedAsset(assetCode as any)}
                                     className={`py-2 px-3 rounded-xl border text-[11px] font-bold transition-all ${storeSelectedAsset === assetCode
-                                        ? 'border-[#E44134]/50 bg-[#E44134]/10 text-[#E44134]'
+                                        ? 'border-white/20 bg-white/10 text-white'
                                         : 'border-white/5 bg-white/5 text-neutral-500 hover:bg-white/10'
                                         }`}
                                 >
@@ -115,7 +115,7 @@ export const PerpTradingPanel: React.FC = () => {
                         max="50"
                         value={leverage}
                         onChange={(e) => setLeverage(parseInt(e.target.value))}
-                        className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-[#E44134]"
+                        className={`w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer ${side === 'long' ? 'accent-emerald-500' : 'accent-rose-500'}`}
                     />
                     <div className="flex justify-between text-[9px] text-neutral-600 mt-2 font-black tracking-tighter">
                         <span>1X</span>
@@ -138,7 +138,7 @@ export const PerpTradingPanel: React.FC = () => {
                             type="number"
                             value={collateral}
                             onChange={(e) => setCollateral(e.target.value)}
-                            className="w-full bg-black/40 border border-white/5 rounded-2xl px-5 py-4 text-2xl font-black text-white focus:outline-none focus:border-[#E44134]/50 transition-all font-mono"
+                            className="w-full bg-black/40 border border-white/5 rounded-2xl px-5 py-4 text-2xl font-black text-white focus:outline-none focus:border-white/20 transition-all font-mono"
                             placeholder="0.00"
                         />
                         <div className="absolute right-5 top-1/2 -translate-y-1/2 text-neutral-500 font-black text-xs tracking-widest">USDC</div>
@@ -157,7 +157,7 @@ export const PerpTradingPanel: React.FC = () => {
                     </div>
                     <div className="flex justify-between text-[11px]">
                         <span className="text-neutral-500 font-bold uppercase tracking-widest">Liq. Price</span>
-                        <span className="text-red-500/80 font-mono font-bold">${liquidationPrice.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
+                        <span className="text-rose-500/80 font-mono font-bold">${liquidationPrice.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
                     </div>
                 </div>
 
@@ -166,8 +166,8 @@ export const PerpTradingPanel: React.FC = () => {
                     onClick={handleOpenPosition}
                     disabled={isSubmitting || !isConnected}
                     className={`w-full py-5 rounded-2xl font-black text-sm tracking-[0.2em] transition-all transform active:scale-[0.98] ${side === 'long'
-                        ? 'bg-[#E44134] hover:bg-[#ff4d3d] text-white shadow-[0_10px_40px_rgba(228,65,52,0.25)] border-[#E44134]'
-                        : 'bg-red-500 hover:bg-red-400 text-white shadow-[0_10px_40px_rgba(239,68,68,0.25)] border-red-500'
+                        ? 'bg-emerald-500 hover:bg-emerald-400 text-white shadow-[0_10px_40px_rgba(16,185,129,0.25)] border-emerald-500'
+                        : 'bg-rose-500 hover:bg-rose-400 text-white shadow-[0_10px_40px_rgba(244,63,94,0.25)] border-rose-500'
                         }`}
                 >
                     {isSubmitting ? (
